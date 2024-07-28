@@ -1,0 +1,34 @@
+const int redPin = 3;
+const int greenPin = 5;
+const int bluePin = 6;
+const int buzzerPin = 9;
+
+void setup() {
+  pinMode(redPin, OUTPUT);
+  pinMode(greenPin, OUTPUT);
+  pinMode(bluePin, OUTPUT);
+  pinMode(buzzerPin, OUTPUT);
+}
+
+void loop() {
+  
+  int duration = 150;
+  for (int i = 0; i < 2; i++) {
+    tone(buzzerPin, 600);
+    delay(duration);
+    tone(buzzerPin, 800);
+    delay(duration);
+  }
+  noTone(buzzerPin);
+  delay(1000); // Pause between cycles
+
+ 
+  for (int j = 0; j < 10; j++) {
+    digitalWrite(redPin, HIGH);
+    digitalWrite(bluePin, LOW);
+    delay(100);
+    digitalWrite(redPin, LOW);
+    digitalWrite(bluePin, HIGH);
+    delay(100);
+  }
+}
