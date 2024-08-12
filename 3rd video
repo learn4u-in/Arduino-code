@@ -1,0 +1,27 @@
+// Pin connected to the LED
+const int ledPin = 9;
+
+// Variables to control fading
+int brightness = 0;
+int fadeAmount = 5; // How much to change the brightness by each time
+
+void setup() {
+  // Set the LED pin as an output
+  pinMode(ledPin, OUTPUT);
+}
+
+void loop() {
+  // Set the LED brightness
+  analogWrite(ledPin, brightness);
+
+  // Change the brightness for next time through the loop
+  brightness = brightness + fadeAmount;
+
+  // Reverse the direction of the fading at the ends of the fade
+  if (brightness <= 0 || brightness >= 255) {
+    fadeAmount = -fadeAmount;
+  }
+
+  // Wait for 30 milliseconds to see the fading effect
+  delay(30);
+}
